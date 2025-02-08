@@ -5,13 +5,14 @@ create table account (
     username varchar(255) not null unique,
     password varchar(255)
 );
-create table message (
-    messageId int primary key auto_increment,
-    postedBy int,
-    messageText varchar(255),
-    timePostedEpoch bigint,
-    foreign key (postedBy) references account(accountId)
+CREATE TABLE message (
+    messageId INT PRIMARY KEY AUTO_INCREMENT,
+    postedBy INT,
+    messageText VARCHAR(255) NOT NULL,
+    timePostedEpoch BIGINT,
+    FOREIGN KEY (postedBy) REFERENCES account(accountId)
 );
+
 
 -- Starting test values with ids of 9999 to avoid test issues
 insert into account values (9999, 'testuser1', 'password');

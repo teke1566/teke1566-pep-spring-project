@@ -2,11 +2,14 @@ package com.example.entity;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * This is a class that models a Message.
  *
  * You should NOT make any modifications to this class.
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // Ignores unknown properties like "userId"
 @Entity
 @Table(name="message")
 public class Message {
@@ -172,6 +175,10 @@ public class Message {
                 ", timePostedEpoch=" + timePostedEpoch +
                 '}';
     }
+    public Integer getUserId() {
+        return this.postedBy;
+    }
+    
 
 
 }
